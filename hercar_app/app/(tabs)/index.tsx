@@ -1,98 +1,89 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { router } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
-
-export default function HomeScreen() {
+export default function Home() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <View style={styles.container}>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      <View style={styles.hero}>
+        <Text style={styles.logo}>HERCAR</Text>
+        <Text style={styles.tagline}>
+          Servicio Automotriz Profesional
+        </Text>
+      </View>
+
+      <View style={styles.actions}>
+        <MainButton title="Ver Servicios" icon="construct" route="/trabajos" />
+        <MainButton title="Contactar" icon="logo-whatsapp" route="/redes" primary />
+      </View>
+
+      <View style={styles.grid}>
+        <MiniCard title="Promociones" icon="pricetag" route="/promociones" />
+        <MiniCard title="Productos" icon="cube-outline" route="/productos" />
+      </View>
+
+    </View>
+  );
+}
+
+function MainButton({ title, icon, route, primary }: any) {
+  return (
+    <TouchableOpacity
+      style={[styles.mainBtn, primary && styles.primary]}
+      onPress={() => router.push(route)}
+    >
+      <Ionicons name={icon} size={20} color="#000" />
+      <Text style={styles.mainText}>{title}</Text>
+    </TouchableOpacity>
+  );
+}
+
+function MiniCard({ title, icon, route }: any) {
+  return (
+    <TouchableOpacity style={styles.card} onPress={() => router.push(route)}>
+      <Ionicons name={icon} size={24} color="#F4B400" />
+      <Text style={styles.cardText}>{title}</Text>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: { flex: 1, backgroundColor: "#0A0A0A", padding: 20 },
+
+  hero: { marginTop: 50, marginBottom: 30 },
+
+  logo: {
+    fontSize: 36,
+    fontWeight: "900",
+    color: "#F4B400",
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+
+  tagline: { color: "#888" },
+
+  actions: { gap: 15, marginBottom: 25 },
+
+  mainBtn: {
+    flexDirection: "row",
+    backgroundColor: "#F4B400",
+    padding: 15,
+    borderRadius: 14,
+    justifyContent: "center",
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+
+  primary: { backgroundColor: "#25D366" },
+
+  mainText: { marginLeft: 10, fontWeight: "700" },
+
+  grid: { flexDirection: "row", justifyContent: "space-between" },
+
+  card: {
+    width: "48%",
+    backgroundColor: "#151515",
+    padding: 20,
+    borderRadius: 16,
+    alignItems: "center",
   },
+
+  cardText: { color: "#FFF", marginTop: 10 },
 });

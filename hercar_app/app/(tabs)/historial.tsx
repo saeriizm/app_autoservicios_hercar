@@ -3,19 +3,13 @@ import { View, Text, StyleSheet } from "react-native";
 export default function Historial() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Pantalla de Historial</Text>
+      <Text style={styles.title}>Historial</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
+  container: { flex: 1, backgroundColor: "#0A0A0A", justifyContent: "center", alignItems: "center" },
+
+  title: { color: "#F4B400", fontSize: 22 },
 });
