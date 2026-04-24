@@ -1,8 +1,10 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView, StatusBar } from "react-native";
 
-export default function Info() {
+export default function Explore() {
   return (
     <ScrollView style={styles.container}>
+
+      <StatusBar barStyle="light-content" />
 
       {/* HEADER */}
       <View style={styles.header}>
@@ -26,25 +28,10 @@ export default function Info() {
       <View style={styles.card}>
         <Text style={styles.title}>Servicios</Text>
 
-        <View style={styles.item}>
-          <Text style={styles.bullet}>•</Text>
-          <Text style={styles.itemText}>Diagnóstico automotriz</Text>
-        </View>
-
-        <View style={styles.item}>
-          <Text style={styles.bullet}>•</Text>
-          <Text style={styles.itemText}>Mantenimiento general</Text>
-        </View>
-
-        <View style={styles.item}>
-          <Text style={styles.bullet}>•</Text>
-          <Text style={styles.itemText}>Reparaciones mecánicas</Text>
-        </View>
-
-        <View style={styles.item}>
-          <Text style={styles.bullet}>•</Text>
-          <Text style={styles.itemText}>Revisión completa</Text>
-        </View>
+        <Item text="Diagnóstico automotriz" />
+        <Item text="Mantenimiento general" />
+        <Item text="Reparaciones mecánicas" />
+        <Item text="Revisión completa" />
       </View>
 
       {/* COMPROMISO */}
@@ -60,6 +47,15 @@ export default function Info() {
   );
 }
 
+function Item({ text }: any) {
+  return (
+    <View style={styles.item}>
+      <Text style={styles.bullet}>•</Text>
+      <Text style={styles.itemText}>{text}</Text>
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -67,13 +63,13 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    paddingTop: 40,
+    paddingTop: 20, 
     paddingBottom: 20,
     alignItems: "center",
   },
 
   logo: {
-    fontSize: 34,
+    fontSize: 32,
     fontWeight: "900",
     color: "#F4B400",
   },
@@ -87,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#151515",
     marginHorizontal: 15,
     marginBottom: 15,
-    padding: 20,
+    padding: 18,
     borderRadius: 16,
   },
 
@@ -112,6 +108,7 @@ const styles = StyleSheet.create({
   bullet: {
     color: "#F4B400",
     marginRight: 8,
+    fontSize: 16,
   },
 
   itemText: {
