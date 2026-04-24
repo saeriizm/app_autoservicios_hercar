@@ -47,15 +47,7 @@ export default function TabsLayout() {
       />
     
     
-      <Tabs.Screen
-  name="explore"
-  options={{
-    title: "Info",
-    tabBarIcon: ({ color, size }) => (
-      <Ionicons name="information-circle" size={size} color={color} />
-    ),
-  }}
-    />
+     
     </Tabs>
   );
 }

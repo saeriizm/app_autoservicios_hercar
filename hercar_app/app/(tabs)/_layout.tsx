@@ -83,14 +83,7 @@ export default function Layout() {
         }}
       />
 
-      {/* EXPLORE */}
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: "Info",
-          tabBarIcon: (p) => <Icon {...p} name="information-circle" />,
-        }}
-      />
+      
 
     </Tabs>
   );
