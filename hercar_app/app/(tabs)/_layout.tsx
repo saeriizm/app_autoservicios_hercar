@@ -36,6 +36,8 @@ export default function Layout() {
         tabBarInactiveTintColor: COLORS.muted,
       }}
     >
+
+      {/* INICIO */}
       <Tabs.Screen
         name="index"
         options={{
@@ -45,6 +47,7 @@ export default function Layout() {
         }}
       />
 
+      {/* SERVICIOS */}
       <Tabs.Screen
         name="trabajos"
         options={{
@@ -53,6 +56,7 @@ export default function Layout() {
         }}
       />
 
+      {/* PRODUCTOS */}
       <Tabs.Screen
         name="productos"
         options={{
@@ -61,6 +65,7 @@ export default function Layout() {
         }}
       />
 
+      {/* HISTORIAL */}
       <Tabs.Screen
         name="historial"
         options={{
@@ -69,6 +74,7 @@ export default function Layout() {
         }}
       />
 
+      {/* CONTACTO */}
       <Tabs.Screen
         name="redes"
         options={{
@@ -76,6 +82,16 @@ export default function Layout() {
           tabBarIcon: (p) => <Icon {...p} name="call" />,
         }}
       />
+
+      {/* EXPLORE */}
+      <Tabs.Screen
+        name="explore"
+        options={{
+          title: "Info",
+          tabBarIcon: (p) => <Icon {...p} name="information-circle" />,
+        }}
+      />
+
     </Tabs>
   );
 }
