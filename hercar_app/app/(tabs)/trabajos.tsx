@@ -41,7 +41,7 @@ export default function Trabajos() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Servicios desde Firebase</Text>
+      <Text style={styles.titulo}>Con hercar puedes realizar</Text>
 
       <FlatList
         data={servicios}

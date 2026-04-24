@@ -1,12 +1,9 @@
-import { View, Text, StyleSheet, ScrollView, StatusBar } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 
 export default function Explore() {
   return (
     <ScrollView style={styles.container}>
-
-      <StatusBar barStyle="light-content" />
-
-      {/* HEADER */}
+      
       <View style={styles.header}>
         <Text style={styles.logo}>HERCAR</Text>
         <Text style={styles.tagline}>
@@ -14,45 +11,22 @@ export default function Explore() {
         </Text>
       </View>
 
-      {/* CARD PRINCIPAL */}
       <View style={styles.card}>
         <Text style={styles.title}>¿Quiénes somos?</Text>
         <Text style={styles.text}>
-          Taller automotriz especializado en mantenimiento,
-          diagnóstico y reparación de vehículos, ofreciendo
-          un servicio confiable y de calidad.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Text>
       </View>
 
-      {/* SERVICIOS */}
       <View style={styles.card}>
         <Text style={styles.title}>Servicios</Text>
-
-        <Item text="Diagnóstico automotriz" />
-        <Item text="Mantenimiento general" />
-        <Item text="Reparaciones mecánicas" />
-        <Item text="Revisión completa" />
-      </View>
-
-      {/* COMPROMISO */}
-      <View style={styles.card}>
-        <Text style={styles.title}>Nuestro compromiso</Text>
-        <Text style={styles.text}>
-          Brindar un servicio profesional, rápido y confiable,
-          asegurando el mejor rendimiento de tu vehículo.
-        </Text>
+        <Text style={styles.text}>• Diagnóstico automotriz</Text>
+        <Text style={styles.text}>• Mantenimiento general</Text>
+        <Text style={styles.text}>• Reparaciones mecánicas</Text>
       </View>
 
     </ScrollView>
-  );
-}
-
-function Item({ text }: any) {
-  return (
-    <View style={styles.item}>
-      <Text style={styles.bullet}>•</Text>
-      <Text style={styles.itemText}>{text}</Text>
-    </View>
   );
 }
 
@@ -63,55 +37,34 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    paddingTop: 20, 
-    paddingBottom: 20,
+    padding: 20,
     alignItems: "center",
   },
 
   logo: {
-    fontSize: 32,
-    fontWeight: "900",
+    fontSize: 30,
+    fontWeight: "bold",
     color: "#F4B400",
   },
 
   tagline: {
     color: "#888",
-    marginTop: 5,
   },
 
   card: {
     backgroundColor: "#151515",
-    marginHorizontal: 15,
-    marginBottom: 15,
-    padding: 18,
-    borderRadius: 16,
+    margin: 15,
+    padding: 20,
+    borderRadius: 12,
   },
 
   title: {
     color: "#F4B400",
-    fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
   },
 
   text: {
-    color: "#DDD",
-    lineHeight: 20,
-  },
-
-  item: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 6,
-  },
-
-  bullet: {
-    color: "#F4B400",
-    marginRight: 8,
-    fontSize: 16,
-  },
-
-  itemText: {
     color: "#DDD",
   },
 });
